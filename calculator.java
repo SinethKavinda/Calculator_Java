@@ -34,6 +34,7 @@ class Calculatorapp extends JFrame{
 		setLocationRelativeTo(null);
 		
 		txtfield=new JTextField();
+		txtfield.setHorizontalAlignment(JTextField.RIGHT);
 		txtfield.setFont(new Font("", 1, 25));
 		add("North",txtfield);
 		
