@@ -34,8 +34,6 @@ class Calculatorapp extends JFrame{
 		
 		JPanel buttonPanel = new JPanel(new GridLayout(4, 4, 2, 2));
 		
-		
-	
 		btn7=new JButton("7");
 		btn7.setFont(new Font("",1,25));
         btn7.addActionListener(new ActionListener() {
