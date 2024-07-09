@@ -19,6 +19,11 @@ class Calculatorapp extends JFrame{
 	private JButton btnMul;
 	private JButton btnEquals;
 	private JButton btnDec;
+
+	private int num1;
+	private int num2;
+	private char op;
+	private int result;
 	
 	private JTextField txtfield;
 	// private JPanel btnpanel;
@@ -69,7 +74,13 @@ class Calculatorapp extends JFrame{
 		
 		btnMul=new JButton("*");
 		btnMul.setFont(new Font("",1,25));
-		//add(btnMul);
+		btnMul.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+                num1=Integer.parseInt(txtfield.getText());
+				op='*';
+				txtfield.setText("");
+            }
+		});
 		buttonPanel.add(btnMul);
 		
 		btn4=new JButton("4");
@@ -108,7 +119,13 @@ class Calculatorapp extends JFrame{
 		
 		btnDiv=new JButton("/");
 		btnDiv.setFont(new Font("",1,25));
-		//add(btnDiv);
+		btnDiv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+                num1=Integer.parseInt(txtfield.getText());
+				op='/';
+				txtfield.setText("");
+            }
+		});
 		buttonPanel.add(btnDiv);
 		
 		btn1=new JButton("1");
@@ -146,7 +163,13 @@ class Calculatorapp extends JFrame{
 		
 		btnAdd=new JButton("+");
 		btnAdd.setFont(new Font("",1,25));
-		//add(btnAdd);
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+                num1=Integer.parseInt(txtfield.getText());
+				op='+';
+				txtfield.setText("");
+            }
+		});
 		buttonPanel.add(btnAdd);
 		
 		btn0=new JButton("0");
@@ -168,12 +191,38 @@ class Calculatorapp extends JFrame{
 
 		btnEquals=new JButton("=");
 		btnEquals.setFont(new Font("",1,25));
-		//add(btnEquals);
+		btnEquals.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+                num2=Integer.parseInt(txtfield.getText());
+				result=0;
+				switch (op) {
+					case '*': 
+						result=num1*num2;
+						break;
+					case '/': 
+						result=num1/num2;
+						break;
+					case '+': 
+						result=num1+num2;
+						break;
+					case '-': 
+						result=num1-num2;
+						break;
+				}
+				txtfield.setText(""+result);
+            }
+		});
 		buttonPanel.add(btnEquals);
 		
 		btnSub=new JButton("-");
 		btnSub.setFont(new Font("",1,25));
-		//add(btnSub);
+		btnSub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt){
+                num1=Integer.parseInt(txtfield.getText());
+				op='-';
+				txtfield.setText("");
+            }
+		});
 		buttonPanel.add(btnSub);
 		
 		add("Center",buttonPanel);
